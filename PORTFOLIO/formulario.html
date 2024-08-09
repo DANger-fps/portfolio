@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./formulario.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Archivo Narrow:wght@400;500;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Playfair Display:wght@400;500&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap"
+    />
+  </head>
+  <body>
+    <div class="formulario1">
+      <main class="main">
+        <div class="request-date">
+          <nav class="navigation-items">
+            <a class="inicio2" id="iNICIOText">INICIO</a>
+            <a class="proyectos2" id="pROYECTOSText">PROYECTOS</a>
+            <a class="contacto3">CONTACTO</a>
+          </nav>
+        </div>
+        <div class="frame-parent">
+          <div class="trabajemos-juntos-wrapper">
+            <h1 class="trabajemos-juntos1" data-animate-on-scroll>
+              Trabajemos juntos
+            </h1>
+          </div>
+          <div class="contact-form1">
+            <div class="applicant-details">
+              <div class="name-input-parent">
+                <div class="name-input">
+                  <div class="datos-del-solicitante" data-animate-on-scroll>
+                    Datos del solicitante
+                  </div>
+                </div>
+                <div class="full-name">
+                  <input
+                    class="name-fields"
+                    placeholder="Nombre"
+                    type="text"
+                    data-animate-on-scroll
+                  />
+
+                  <input
+                    class="name-fields1"
+                    placeholder="Apellido"
+                    type="text"
+                    data-animate-on-scroll
+                  />
+                </div>
+              </div>
+              <input
+                class="contact-fields"
+                placeholder="Correo electrónico"
+                type="text"
+                data-animate-on-scroll
+              />
+
+              <div class="client-info">
+                <input
+                  class="contact-fields1"
+                  placeholder="Cliente / Marca"
+                  type="text"
+                  data-animate-on-scroll
+                />
+
+                <div class="date-placeholder" data-animate-on-scroll>
+                  <div class="date-placeholder-child"></div>
+                  <b class="fecha-de-solicitud">Fecha de solicitud</b>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="project-fields-wrapper">
+            <div class="project-fields">
+              <div class="content2">
+                <div class="requirement-field">
+                  <div class="datos-de-proyecto" data-animate-on-scroll>
+                    Datos de proyecto
+                  </div>
+                </div>
+                <input
+                  class="requirement"
+                  placeholder="Requerimiento"
+                  type="text"
+                  data-animate-on-scroll
+                />
+              </div>
+              <input
+                class="design-input"
+                placeholder="Pieza a diseñar"
+                type="text"
+                data-animate-on-scroll
+              />
+
+              <div class="design-details">
+                <input
+                  class="size-input"
+                  placeholder="Formato"
+                  type="text"
+                  data-animate-on-scroll
+                />
+
+                <input
+                  class="size-input1"
+                  placeholder="Medidas"
+                  type="text"
+                  data-animate-on-scroll
+                />
+              </div>
+              <textarea
+                class="design-input1"
+                placeholder="Descri´ción y especificaciones"
+                rows="{13}"
+                cols="{26}"
+                data-animate-on-scroll
+              >
+              </textarea>
+              <div class="footer">
+                <button class="submission" data-animate-on-scroll>
+                  <div class="submission-child"></div>
+                  <b class="enviar">ENVIAR</b>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      var iNICIOText = document.getElementById("iNICIOText");
+      if (iNICIOText) {
+        iNICIOText.addEventListener("click", function (e) {
+          window.location.href = "./home.html";
+        });
+      }
+      
+      var pROYECTOSText = document.getElementById("pROYECTOSText");
+      if (pROYECTOSText) {
+        pROYECTOSText.addEventListener("click", function (e) {
+          window.location.href = "./sobre-mi.html";
+        });
+      }
+      var scrollAnimElements = document.querySelectorAll("[data-animate-on-scroll]");
+      var observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting || entry.intersectionRatio > 0) {
+              const targetElement = entry.target;
+              targetElement.classList.add("animate");
+              observer.unobserve(targetElement);
+            }
+          }
+        },
+        {
+          threshold: 0.15,
+        }
+      );
+      
+      for (let i = 0; i < scrollAnimElements.length; i++) {
+        observer.observe(scrollAnimElements[i]);
+      }
+      </script>
+  </body>
+</html>

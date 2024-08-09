@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./contacto.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Archivo Narrow:wght@400;500;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Playfair Display:wght@400;500&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap"
+    />
+  </head>
+  <body>
+    <div class="contacto1">
+      <section class="projects-page">
+        <nav class="header">
+          <a class="inicio1" id="iNICIOText">INICIO</a>
+          <a class="proyectos1" id="pROYECTOSText">PROYECTOS</a>
+          <a class="contacto2">CONTACTO</a>
+        </nav>
+        <div class="content1">
+          <div class="social">
+            <h1 class="redes-sociales" data-animate-on-scroll>
+              Redes sociales
+            </h1>
+            <div class="social-links">
+              <div class="facebook">
+                <div class="facebook-content" data-animate-on-scroll>
+                  <img
+                    class="facebook-icon"
+                    loading="lazy"
+                    alt=""
+                    src="./public/rectangle-26@2x.png"
+                  />
+
+                  <div class="facebook-name">
+                    <div class="danielabenegas">/Danielabenegas</div>
+                  </div>
+                </div>
+                <div class="facebook-icon-1-parent" data-animate-on-scroll>
+                  <img
+                    class="facebook-icon-1"
+                    loading="lazy"
+                    alt=""
+                    src="./public/2023-facebook-icon-1@2x.png"
+                  />
+
+                  <div class="facebook-page-name">
+                    <div class="daniela-benegas">Daniela Benegas</div>
+                  </div>
+                </div>
+              </div>
+              <div class="facebook1">
+                <div class="instagram-link" data-animate-on-scroll>
+                  <img
+                    class="instagram-icon"
+                    loading="lazy"
+                    alt=""
+                    src="./public/rectangle-27@2x.png"
+                  />
+
+                  <div class="dandaaaaan-wrapper">
+                    <div class="dandaaaaan-">@dandaaaaan__</div>
+                  </div>
+                </div>
+                <div class="rectangle-parent" data-animate-on-scroll>
+                  <img
+                    class="frame-child"
+                    loading="lazy"
+                    alt=""
+                    src="./public/rectangle-29@2x.png"
+                  />
+
+                  <div class="dandaaaaan-container">
+                    <div class="dandaaaaan">dandaaaaan</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="contact">
+        <div class="contact-info">
+          <div class="contact-header">
+            <h1 class="asesoramiento" data-animate-on-scroll>Asesoramiento</h1>
+          </div>
+          <div class="contact-form">
+            <div class="si-ests-interesado-container" data-animate-on-scroll>
+              <p class="si-ests-interesado">
+                Si estás interesado en que trabajemos de manera conjunta para tu
+                proyecto, podés llenar el siguiente formulario para tener
+                información precisa acerca de tu idea y además, poder
+                presupuestarlo.
+              </p>
+              <p class="blank-line1">&nbsp;</p>
+              <p class="cada-proyecto-lleva">
+                Cada proyecto lleva un proceso y pasa por distintas etapas, cada
+                una es importante para lograr el mejor resultado posible. Estoy
+                encantada de participar del tuyo y continuar haciendo esto que
+                amo.
+              </p>
+            </div>
+            <div class="formulario" data-animate-on-scroll>
+              <div class="form-title">
+                <div class="trabajemos-juntos" data-animate-on-scroll>
+                  ¡Trabajemos juntos!
+                </div>
+              </div>
+              <button
+                class="form-button"
+                id="formButton"
+                data-animate-on-scroll
+              >
+                <div class="form-button-child"></div>
+                <b class="llenar-formulario">LLENAR FORMULARIO</b>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      var iNICIOText = document.getElementById("iNICIOText");
+      if (iNICIOText) {
+        iNICIOText.addEventListener("click", function (e) {
+          window.location.href = "./home.html";
+        });
+      }
+      
+      var pROYECTOSText = document.getElementById("pROYECTOSText");
+      if (pROYECTOSText) {
+        pROYECTOSText.addEventListener("click", function (e) {
+          window.location.href = "./sobre-mi.html";
+        });
+      }
+      
+      var formButton = document.getElementById("formButton");
+      if (formButton) {
+        formButton.addEventListener("click", function (e) {
+          window.open("./formulario.html");
+        });
+      }
+      var scrollAnimElements = document.querySelectorAll("[data-animate-on-scroll]");
+      var observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting || entry.intersectionRatio > 0) {
+              const targetElement = entry.target;
+              targetElement.classList.add("animate");
+              observer.unobserve(targetElement);
+            }
+          }
+        },
+        {
+          threshold: 0.15,
+        }
+      );
+      
+      for (let i = 0; i < scrollAnimElements.length; i++) {
+        observer.observe(scrollAnimElements[i]);
+      }
+      </script>
+  </body>
+</html>
